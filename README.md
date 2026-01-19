@@ -1,52 +1,16 @@
-# \# Project Management System
+# Project Management System
 
 # 
 
-# \## 📌 Overview
+## 📌 Overview
 
 # 
 
-# The \*\*Project Management System\*\* is a Spring Boot–based backend application designed to manage organizational structure and workflows within a company. It focuses on \*\*Departments, Teams, Employees, Projects, and Vacation Management\*\*, with clear role-based responsibilities and decision flows.
+# The **Project Management System** is a Spring Boot–based backend application designed to manage organizational structure and workflows within a company. It focuses on **Departments, Teams, Employees, Projects, and Vacation Management**, with clear role-based responsibilities and decision flows.
 
 # 
 
-# The system follows \*\*clean architecture principles\*\*, separation of concerns, and real-world business rules similar to enterprise HR and project management systems.
-
-# 
-
-# ---
-
-# 
-
-# \## 🏗️ Core Modules \& Features
-
-# 
-
-# \### 1️⃣ Department Management
-
-# 
-
-# \* Create, update, delete departments
-
-# \* Each department:
-
-# 
-
-# &nbsp; \* Has a \*\*unique manager\*\* (one active manager only)
-
-# &nbsp; \* Can have multiple projects
-
-# \* Assign existing projects to a department or create new ones during department creation
-
-# 
-
-# \*\*Business Rules:\*\*
-
-# 
-
-# \* Only one active manager is allowed per department
-
-# \* Department manager is always an employee belonging to that department
+# The system follows **clean architecture principles**, separation of concerns, and real-world business rules similar to enterprise HR and project management systems.
 
 # 
 
@@ -54,85 +18,35 @@
 
 # 
 
-# \### 2️⃣ Team Management
+# ## 🏗️ Core Modules & Features
 
 # 
 
-# \* Teams belong to a \*\*single department\*\*
-
-# \* Each team can have:
+# ### 1️⃣ Department Management
 
 # 
 
-# &nbsp; \* Multiple employees
+# * Create, update, delete departments
 
-# &nbsp; \* One Tech Lead
-
-# 
-
-# \*\*Business Rules:\*\*
+# * Each department:
 
 # 
 
-# \* Teams cannot exist without a department
+# &nbsp; * Has a **unique manager** (one active manager only)
 
-# \* Only one active Tech Lead is allowed per team
+# &nbsp; * Can have multiple projects
 
-# 
-
-# ---
+# * Assign existing projects to a department or create new ones during department creation
 
 # 
 
-# \### 3️⃣ Employee Management
+# **Business Rules:**
 
 # 
 
-# \* Add, update, activate, deactivate employees
+# * Only one active manager is allowed per department
 
-# \* Assign employees to:
-
-# 
-
-# &nbsp; \* Department only
-
-# &nbsp; \* OR Team (which implicitly assigns the department)
-
-# 
-
-# \*\*Employee Roles:\*\*
-
-# 
-
-# \* EMPLOYEE
-
-# \* TECHLEAD
-
-# \* MANAGER
-
-# 
-
-# \*\*Role Constraints:\*\*
-
-# 
-
-# \* MANAGER:
-
-# 
-
-# &nbsp; \* Assigned directly to a department
-
-# &nbsp; \* Cannot belong to a team
-
-# &nbsp; \* Only one active manager per department
-
-# \* TECHLEAD:
-
-# 
-
-# &nbsp; \* Assigned to a team
-
-# &nbsp; \* Only one active tech lead per team
+# * Department manager is always an employee belonging to that department
 
 # 
 
@@ -140,19 +54,29 @@
 
 # 
 
-# \### 4️⃣ Project Management
+# ### 2️⃣ Team Management
 
 # 
 
-# \* Create projects
+# * Teams belong to a **single department**
 
-# \* Assign projects to departments
-
-# \* Update project details
+# * Each team can have:
 
 # 
 
-# Projects are always owned by \*\*departments\*\*, not teams.
+# &nbsp; * Multiple employees
+
+# &nbsp; * One Tech Lead
+
+# 
+
+# **Business Rules:**
+
+# 
+
+# * Teams cannot exist without a department
+
+# * Only one active Tech Lead is allowed per team
 
 # 
 
@@ -160,41 +84,117 @@
 
 # 
 
-# \### 5️⃣ Vacation Management System
+# ### 3️⃣ Employee Management
 
 # 
 
-# \#### Vacation Requests
+# * Add, update, activate, deactivate employees
+
+# * Assign employees to:
 
 # 
 
-# \* Employees can request vacations
+# &nbsp; * Department only
 
-# \* Each request has a lifecycle and status
-
-# 
-
-# \#### Decision Flow (Strategy Pattern)
+# &nbsp; * OR Team (which implicitly assigns the department)
 
 # 
 
-# Vacation decisions are handled using a \*\*Strategy-based design\*\*:
+# **Employee Roles:**
 
 # 
 
-# \* Common decision steps are shared
+# * EMPLOYEE
 
-# \* Business logic differs by role
+# * TECHLEAD
 
-# 
-
-# \*\*Decision Types:\*\*
+# * MANAGER
 
 # 
 
-# \* Team Lead Decision
+# **Role Constraints:**
 
-# \* Department Manager Decision
+# 
+
+# * MANAGER:
+
+# 
+
+# &nbsp; * Assigned directly to a department
+
+# &nbsp; * Cannot belong to a team
+
+# &nbsp; * Only one active manager per department
+
+# * TECHLEAD:
+
+# 
+
+# &nbsp; * Assigned to a team
+
+# &nbsp; * Only one active tech lead per team
+
+# 
+
+# ---
+
+# 
+
+# ### 4️⃣ Project Management
+
+# 
+
+# * Create projects
+
+# * Assign projects to departments
+
+# * Update project details
+
+# 
+
+# Projects are always owned by **departments**, not teams.
+
+# 
+
+# ---
+
+# 
+
+# ### 5️⃣ Vacation Management System
+
+# 
+
+# #### Vacation Requests
+
+# 
+
+# * Employees can request vacations
+
+# * Each request has a lifecycle and status
+
+# 
+
+# #### Decision Flow (Strategy Pattern)
+
+# 
+
+# Vacation decisions are handled using a **Strategy-based design**:
+
+# 
+
+# * Common decision steps are shared
+
+# * Business logic differs by role
+
+# 
+
+# **Decision Types:**
+
+# 
+
+# * Team Lead Decision
+
+# * Department Manager Decision
 
 # 
 
@@ -202,11 +202,11 @@
 
 # 
 
-# \* Has its own request DTO
+# * Has its own request DTO
 
-# \* Has its own decision service implementation
+# * Has its own decision service implementation
 
-# \* Implements a common interface
+# * Implements a common interface
 
 # 
 
@@ -214,23 +214,9 @@
 
 # 
 
-# \* Avoids `if/else` role checks
+# * Avoids `if/else` role checks
 
-# \* Is easily extendable (Open/Closed Principle)
-
-# 
-
-# ---
-
-# 
-
-# \### 6️⃣ Vacation Balance Logic
-
-# 
-
-# \* Vacation and sick leave balances are calculated dynamically
-
-# \* Based on the current day of the month
+# * Is easily extendable (Open/Closed Principle)
 
 # 
 
@@ -238,37 +224,51 @@
 
 # 
 
-# \## 🧠 Architecture \& Design Principles
+# ### 6️⃣ Vacation Balance Logic
 
 # 
 
-# \### ✅ Clean Architecture
+# * Vacation and sick leave balances are calculated dynamically
+
+# * Based on the current day of the month
 
 # 
 
-# \* Controllers → handle HTTP requests
-
-# \* Services → business logic
-
-# \* Repositories → database access
-
-# \* DTOs → request/response isolation
+# ---
 
 # 
 
-# \### ✅ Dependency Injection
+# ## 🧠 Architecture & Design Principles
 
 # 
 
-# \* Constructor / field injection via Spring
-
-# \* Clear service boundaries
-
-# \* Avoids tight coupling
+# ### ✅ Clean Architecture
 
 # 
 
-# \### ✅ Strategy Pattern
+# * Controllers → handle HTTP requests
+
+# * Services → business logic
+
+# * Repositories → database access
+
+# * DTOs → request/response isolation
+
+# 
+
+# ### ✅ Dependency Injection
+
+# 
+
+# * Constructor / field injection via Spring
+
+# * Clear service boundaries
+
+# * Avoids tight coupling
+
+# 
+
+# ### ✅ Strategy Pattern
 
 # 
 
@@ -276,37 +276,13 @@
 
 # 
 
-# \### ✅ Validation \& Business Rules
+# ### ✅ Validation & Business Rules
 
 # 
 
-# \* Role-based constraints enforced at service layer
+# * Role-based constraints enforced at service layer
 
-# \* Data consistency ensured before persistence
-
-# 
-
-# ---
-
-# 
-
-# \## 🛠️ Technology Stack
-
-# 
-
-# \* Java
-
-# \* Spring Boot
-
-# \* Spring Data JPA
-
-# \* Hibernate
-
-# \* Lombok
-
-# \* RESTful APIs
-
-# \* MySQL (configurable)
+# * Data consistency ensured before persistence
 
 # 
 
@@ -314,19 +290,23 @@
 
 # 
 
-# \## 🔐 Future Enhancements (Planned)
+# ## 🛠️ Technology Stack
 
 # 
 
-# \* Authentication \& Authorization (Spring Security, JWT)
+# * Java
 
-# \* Role-based access control
+# * Spring Boot
 
-# \* Audit logging
+# * Spring Data JPA
 
-# \* API documentation (Swagger / OpenAPI)
+# * Hibernate
 
-# \* Pagination \& filtering
+# * Lombok
+
+# * RESTful APIs
+
+# * MySQL (configurable)
 
 # 
 
@@ -334,7 +314,27 @@
 
 # 
 
-# \## 📂 Project Structure
+# ## 🔐 Future Enhancements (Planned)
+
+# 
+
+# * Authentication & Authorization (Spring Security, JWT)
+
+# * Role-based access control
+
+# * Audit logging
+
+# * API documentation (Swagger / OpenAPI)
+
+# * Pagination & filtering
+
+# 
+
+# ---
+
+# 
+
+# ## 📂 Project Structure
 
 # 
 
@@ -366,17 +366,17 @@
 
 # 
 
-# \## 🎯 Key Takeaways
+# ## 🎯 Key Takeaways
 
 # 
 
-# \* Models real-world organizational structure
+# * Models real-world organizational structure
 
-# \* Enforces strict business rules
+# * Enforces strict business rules
 
-# \* Designed for scalability and maintainability
+# * Designed for scalability and maintainability
 
-# \* Interview-ready architecture and patterns
+# * Interview-ready architecture and patterns
 
 # 
 
@@ -384,11 +384,11 @@
 
 # 
 
-# \## 👨‍💻 Author
+# ## 👨‍💻 Author
 
 # 
 
-# \*\*Amir Mamdouh\*\*
+# **Amir Mamdouh**
 
 # 
 
