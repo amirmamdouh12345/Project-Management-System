@@ -118,6 +118,13 @@ This design:
 
 ---
 
+### 6️⃣ Scheduled Jobs:
+
+* Process pending vacation requests automatically.
+* Update employee vacation and sick leave balances.
+* Maintain consistency of employee, team, and department data.
+
+
 ## 🧠 Architecture & Design Principles
 
 ### ✅ Clean Architecture
