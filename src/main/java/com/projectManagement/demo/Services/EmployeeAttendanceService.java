@@ -55,6 +55,9 @@ public class EmployeeAttendanceService {
 
 
 
+    public List<EmployeeAttendance> get(){
+        return  employeeAttendanceRepo.findAll();
+    }
 
 
     public String checkIn(Employee employee){

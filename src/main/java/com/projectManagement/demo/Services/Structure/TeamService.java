@@ -27,6 +27,11 @@ public class TeamService {
         return team.orElseThrow(() -> new RuntimeException("Team not found"));
     }
 
+    public Optional<Team> getOptionalTeamById(Long id) {
+        return teamRepo.findById(id);
+    }
+
+
     public Team getTeamByTeamName(String teamName) {
         Optional<Team> team = teamRepo.findByTeamName(teamName);
         return team.orElseThrow(() -> new RuntimeException("Team not found"));

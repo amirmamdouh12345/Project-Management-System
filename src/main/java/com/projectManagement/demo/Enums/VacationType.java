@@ -8,7 +8,7 @@ import lombok.Getter;
 public enum VacationType {
     ANNUAL("ANNUAL",null),
     SICK("SICK",null),
-    WEDDING("WEDDING",3),
+    WEDDING("WEDDING",7),
     FUNERAL("FUNERAL",2),
     PREGNANCY("PREGNANCY",10)
     ;

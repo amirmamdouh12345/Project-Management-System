@@ -46,6 +46,11 @@ public class VacationRequestService {
         return vacationRequestRepo.findAll();
     }
 
+    public VacationRequest findById(Long vacationRequestId) {
+        return vacationRequestRepo.findById(vacationRequestId).orElseThrow();
+    }
+
+
     public VacationRequest getProcessingVacationRequestByEmployeeId(Long empId) {
         Optional<VacationRequest> vacationRequestOptional = vacationRequestRepo.findProcessingRequestsByEmployeeId(empId);
         return vacationRequestOptional.orElseGet(()->null);
@@ -100,7 +105,7 @@ public class VacationRequestService {
         //other vacation types have there own no of days
         else {
             noOfDays =vacationRequestDTO.getVacationType().getNoOfDays();
-             endDate = ChronoUnit.DAYS.addTo(startDate,noOfDays);
+            endDate = ChronoUnit.DAYS.addTo(startDate,noOfDays);
 
             //calculate end date
 

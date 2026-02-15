@@ -79,17 +79,52 @@ public class Employee {
     Integer sickLeaveBalance;
 
     @OneToMany(mappedBy = "employeeAttendanceId.employee")
-    @JsonBackReference("employee-attendance")
+    @JsonIgnoreProperties(value = {"employeeAttendanceId.employee"})
     List<EmployeeAttendance> attendanceList;
 
     Long constantSalary;
 
 
     @OneToMany(mappedBy = "employee")
-    @JsonBackReference(value = "vacation")
+    @JsonIgnoreProperties(value = {"employee"
+            ,"teamLead.vacationRequestList"
+            ,"teamLead.managedVacationRequests"
+            ,"teamLead.teamLeadVacationRequests"
+            ,"departmentManager.vacationRequestList"
+            ,"departmentManager.managedVacationRequests"
+            ,"departmentManager.teamLeadVacationRequests"
+            })
     List<VacationRequest> vacationRequestList;
 
 
+    // for department managers only
+    @OneToMany(mappedBy = "departmentManager")
+    @JsonIgnoreProperties(value = {"employee.vacationRequestList"
+            ,"employee.managedVacationRequests"
+            ,"employee.teamLeadVacationRequests"
+            ,"teamLead.vacationRequestList"
+            ,"teamLead.managedVacationRequests"
+            ,"teamLead.teamLeadVacationRequests"
+            ,"departmentManager.vacationRequestList"
+            ,"departmentManager.managedVacationRequests"
+            ,"departmentManager.teamLeadVacationRequests"
+    })
+    List<VacationRequest> managedVacationRequests;
+
+
+    // for teamLeads only
+    @OneToMany(mappedBy = "teamLead")
+    @JsonIgnoreProperties(value = {"employee.vacationRequestList"
+            ,"employee.managedVacationRequests"
+            ,"employee.teamLeadVacationRequests"
+            ,"teamLead.vacationRequestList"
+            ,"teamLead.managedVacationRequests"
+            ,"teamLead.teamLeadVacationRequests"
+            ,"departmentManager.vacationRequestList"
+            ,"departmentManager.managedVacationRequests"
+            ,"departmentManager.teamLeadVacationRequests"
+    })
+    List<VacationRequest> teamLeadVacationRequests;
 
 
     @OneToOne(mappedBy = "employee")

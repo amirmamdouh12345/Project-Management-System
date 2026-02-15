@@ -1,13 +1,13 @@
 package com.projectManagement.demo.Controllers;
 
+import com.projectManagement.demo.Entities.EmployeeAttendance;
 import com.projectManagement.demo.Entities.Structure.Employee;
 import com.projectManagement.demo.Services.EmployeeAttendanceService;
 import com.projectManagement.demo.Services.Structure.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/attendance")
@@ -42,4 +42,16 @@ public class AttendanceController {
         return employeeAttendanceService.checkOut(employee);
 
     }
+
+    // TODO: get the current Employee after adding authentication
+    @GetMapping("/a")
+    public List<EmployeeAttendance> getAllAttendance(){
+        // the current Employee
+
+
+        return employeeAttendanceService.get();
+
+    }
+
+
 }

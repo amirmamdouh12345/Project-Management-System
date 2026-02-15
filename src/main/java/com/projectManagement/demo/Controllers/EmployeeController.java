@@ -29,7 +29,18 @@ public class EmployeeController {
     @PostMapping
     public String addEmployee(@RequestBody EmployeeDTO employee) {
         System.out.println("start");
-        return employeeService.addEmployee(employee);
+        return employeeService.addNewEmployee(employee);
+    }
+
+    @PostMapping("/update")
+    public String updateEmployee(@RequestBody EmployeeDTO employeeDTO){
+        System.out.println("start updating");
+        return employeeService.updateEmployee(employeeDTO);
+    }
+
+    @PostMapping("/activate/request")
+    public String activateRequest(@RequestBody EmployeeDTO employeeDTO){
+        return employeeService.activateEmployeeRequest(employeeDTO.getEmployeeId());
     }
 
 
@@ -44,8 +55,9 @@ public class EmployeeController {
     }
 
     @PostMapping("/activate")
-    public String activeEmployee(@RequestBody ActivateEmployeeRequest employeeRequest) {
-        return employeeService.activateEmployee(employeeRequest.getEmpId());
+    public String activeEmployee(@RequestParam("token") String token) {
+        System.out.println("activation");
+        return employeeService.activateEmployee( token);
     }
 
     @PostMapping("/deactivate")
@@ -53,10 +65,6 @@ public class EmployeeController {
         return employeeService.deactivateEmployee(employeeRequest.getEmpId());
     }
 
-    @PostMapping("/role")
-    public String assignNewRoleToEmployee(@RequestBody EmployeeDTO employeeDTO){
-        return employeeService.assignEmployeeToNewRole(employeeDTO);
-    }
 
 
 }

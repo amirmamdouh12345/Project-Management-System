@@ -31,8 +31,8 @@ public class AttendanceScheduler {
     private EmployeeSalaryService employeeSalaryService;
 
     // at start of each day  --> create attendance record for each employee
-//    @Scheduled(cron = "0 0 0 * * SUN-THU")
-    @Scheduled(cron = "0 15 11 * * *") // for testing
+    @Scheduled(cron = "0 0 0 * * SUN-THU")
+//    @Scheduled(cron = "0 15 11 * * *") // for testing
     public void createAttendanceRecordForEachEmployee() {
         System.out.println("createAttendanceRecordForEachEmployee");
         employeeService.getAllActivatedEmployees().forEach(emp -> {

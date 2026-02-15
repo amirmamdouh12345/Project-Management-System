@@ -46,5 +46,13 @@ public interface VacationRequestRepo extends JpaRepository<VacationRequest, Long
                                                                             @Param("vacationRequestStatus") VacationRequestStatus vacationRequestStatus);
 
 
+    @Query("SELECT v FROM VacationRequest v WHERE v.employee.team.teamId = :teamId")
+    public  List<VacationRequest> findAllVacationRequestsRelatedToTeamId(@Param("teamId") Long teamId);
+
+
+    @Query("SELECT v FROM VacationRequest v WHERE v.employee.department.departmentId = :depId")
+    public  List<VacationRequest> findAllVacationRequestsRelatedToDepartmentId(@Param("depId") Long depId);
+
+
 
 }

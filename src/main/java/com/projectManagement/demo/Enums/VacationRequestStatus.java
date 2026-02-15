@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 @NoArgsConstructor
 public enum VacationRequestStatus {
+
     TEAMLEAD_PENDING("Pending","Pending for Team Lead Approval"),
     TEAMLEAD_APPROVED("Team Lead Approved","Approved by Team Lead and Pending for Department Manager Approval"),
     TEAMLEAD_REJECTED("Team Lead Rejected","Rejected by Team Lead"),

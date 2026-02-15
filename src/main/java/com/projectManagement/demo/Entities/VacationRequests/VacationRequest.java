@@ -24,7 +24,15 @@ public class VacationRequest {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "employee_id")
-    @JsonIgnoreProperties(value = {"vacationRequestList","attendanceList","taskList","taskComments","team","department"})
+    @JsonIgnoreProperties(value = {
+            "vacationRequestList",
+            "attendanceList",
+            "taskList",
+            "taskComments",
+            "team",
+            "department"
+            ,"managedVacationRequests"
+            ,"teamLeadVacationRequests"})
     Employee employee;
 
 //    @Convert(converter = LocalDateConverter.class)
@@ -42,13 +50,29 @@ public class VacationRequest {
 
     @ManyToOne
     @JoinColumn(name = "team_lead_id",nullable = false)
-    @JsonIgnoreProperties(value = {"vacationRequestList","attendanceList","taskList","taskComments","team","department"})
+    @JsonIgnoreProperties(value = {
+            "vacationRequestList",
+            "attendanceList",
+            "taskList",
+            "taskComments",
+            "team",
+            "department"
+            ,"managedVacationRequests"
+            ,"teamLeadVacationRequests"})
     Employee teamLead;
 
     @ManyToOne
     @JoinColumn(name = "dep_manager_id",nullable = false)
 //    @JsonManagedReference("vacation")
-    @JsonIgnoreProperties(value = {"vacationRequestList","attendanceList","taskList","taskComments","team","department"})
+    @JsonIgnoreProperties(value = {
+                                    "vacationRequestList",
+                                    "attendanceList",
+                                    "taskList",
+                                    "taskComments",
+                                    "team",
+                                    "department"
+                                    ,"managedVacationRequests"
+                                    ,"teamLeadVacationRequests"})
     Employee departmentManager;
 
     @Enumerated(EnumType.STRING)
@@ -57,7 +81,7 @@ public class VacationRequest {
     @Enumerated(EnumType.STRING)
     VacationType vacationType;
 
-    @Convert(converter = LocalDateConverter.class)
+//    @Convert(converter = LocalDateConverter.class)
     Date createdAt;
 
     @Override

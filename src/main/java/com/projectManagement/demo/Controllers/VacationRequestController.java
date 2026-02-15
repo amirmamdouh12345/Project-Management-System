@@ -4,6 +4,7 @@ import com.projectManagement.demo.DTOs.Requests.VacationDecisions.DepartmentMana
 import com.projectManagement.demo.DTOs.Requests.VacationDecisions.HRVacationDecisionRequest;
 import com.projectManagement.demo.DTOs.Requests.VacationDecisions.TeamLeadVacationDecisionRequest;
 import com.projectManagement.demo.DTOs.Requests.VacationRequestDTO;
+import com.projectManagement.demo.Entities.Structure.Employee;
 import com.projectManagement.demo.Entities.VacationRequests.VacationRequest;
 import com.projectManagement.demo.Services.DecisionImplementations.VacationRequestDepManagerDecisionLogic;
 import com.projectManagement.demo.Services.DecisionImplementations.VacationRequestHRDecisionLogic;
@@ -49,6 +50,16 @@ public class VacationRequestController {
         System.out.println("teamLeadId: "+teamLeadId);
         return vacationRequestService.getAllPendingVacationRequestsByTeamLeadId(teamLeadId);
     }
+
+//    //TODO  after adding authentication to users
+//    @GetMapping("/ss/{vacationId}")
+//    public List<VacationRequest> ss(@PathVariable("vacationId") Long vacationId) {
+//        System.out.println("vacationId: "+vacationId);
+//        VacationRequest v = vacationRequestService.findById(vacationId);
+//
+//        List<VacationRequest> r= v.getDepartmentManager().getManagedVacationRequests();
+//        return r;
+//    }
 
 
 

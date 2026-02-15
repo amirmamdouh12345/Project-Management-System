@@ -76,7 +76,7 @@ public class TaskService {
         String[] v = fullNameEmp.split(" ");
 
         //included exception handling
-        Employee emp = employeeService.getEmployeeByName(v[0],v[1]);
+        Employee emp = employeeService.getEmployeeByName(v[0],v[1]).orElseThrow();
 
         task.setEmployee(emp);
         task.setProject(emp.getTeam().getProject());
@@ -85,8 +85,6 @@ public class TaskService {
         task.setTaskStatus(newTask.getTask().getTaskStatus() != null ?
                 newTask.getTask().getTaskStatus():task.getTaskStatus()!=null ? task.getTaskStatus(): TaskStatus.NEW );
         task.setDescription(newTask.getTask().getDescription()!=null?newTask.getTask().getDescription():task.getDescription());
-
-
 
 
         Task saved = taskRepo.save(task);
